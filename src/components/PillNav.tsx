@@ -196,7 +196,7 @@ const PillNav: React.FC<PillNavProps> = ({
   return (
     <div className="pill-nav-container">
       <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
-        <div className="flex-1 flex justify-start min-w-0">
+        <div className="md:flex-1 flex justify-start min-w-0">
           {isRouterLink(items?.[0]?.href) ? (
             <Link
               className="pill-logo flex items-center gap-2.5 min-w-0"
@@ -289,7 +289,7 @@ const PillNav: React.FC<PillNavProps> = ({
           </div>
         </div>
 
-        <div className="flex-1 flex justify-end items-center gap-3">
+        <div className="md:flex-1 flex justify-end items-center gap-3">
           <Link to="/recipes" className="hidden md:inline-flex btn-primary !py-2.5 !px-5 text-sm">
             Explore
           </Link>
