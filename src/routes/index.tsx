@@ -500,14 +500,14 @@ function Seasonal() {
             and orchard fruit.
           </p>
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:gap-2 shrink-0 w-full sm:w-auto">
           {seasons.map((s) => {
             const Icon = seasonData[s].icon;
             return (
               <button
                 key={s}
                 onClick={() => setActive(s)}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-display font-medium border transition-all ${
+                className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-display font-medium border transition-all ${
                   active === s
                     ? "bg-ink text-cream border-ink shadow-sm"
                     : "bg-card text-ink-soft border-border hover:text-ink hover:border-ink/30"

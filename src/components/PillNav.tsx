@@ -295,7 +295,7 @@ const PillNav: React.FC<PillNavProps> = ({
           </Link>
 
           <button
-            className={`mobile-menu-button flex md:hidden${isMobileMenuOpen ? " is-open" : ""}`}
+            className={`mobile-menu-button flex md:hidden ${isMobileMenuOpen ? "is-open" : ""}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -306,7 +306,7 @@ const PillNav: React.FC<PillNavProps> = ({
       </nav>
 
       <div
-        className={`mobile-menu-popover md:hidden${isMobileMenuOpen ? " is-open" : ""}`}
+        className={`mobile-menu-popover md:hidden ${isMobileMenuOpen ? "is-open" : ""}`}
         style={cssVars}
       >
         <ul className="mobile-menu-list">

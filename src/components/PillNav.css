@@ -138,6 +138,12 @@
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .mobile-menu-button {
+    display: none !important;
+  }
+}
+
 .hamburger-line {
   width: 16px;
   height: 2px;
