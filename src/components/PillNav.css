@@ -141,10 +141,18 @@
 .hamburger-line {
   width: 16px;
   height: 2px;
-  background: var(--pill-bg, #fff);
+  background: var(--pill-text, var(--color-ink));
   border-radius: 1px;
-  transition: all 0.01s ease;
+  transition: transform 0.3s ease;
   transform-origin: center;
+}
+
+.mobile-menu-button.is-open .hamburger-line:nth-child(1) {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.mobile-menu-button.is-open .hamburger-line:nth-child(2) {
+  transform: translateY(-3px) rotate(-45deg);
 }
 
 .mobile-menu-popover {
@@ -158,8 +166,19 @@
   border: 1px solid var(--color-border);
   z-index: 998;
   opacity: 0;
+  transform: translateY(10px);
   transform-origin: top center;
   visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobile-menu-popover.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .mobile-menu-list {

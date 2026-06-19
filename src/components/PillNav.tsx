@@ -113,10 +113,7 @@ const PillNav: React.FC<PillNavProps> = ({
       document.fonts.ready.then(layout).catch(() => {});
     }
 
-    const menu = mobileMenuRef.current;
-    if (menu) {
-      gsap.set(menu, { visibility: "hidden", opacity: 0, scaleY: 1 });
-    }
+    // Mobile menu visibility is controlled via CSS transitions
 
     if (initialLoadAnimation) {
       const logo = logoRef.current;
@@ -167,53 +164,7 @@ const PillNav: React.FC<PillNavProps> = ({
   };
 
   const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
-
-    const hamburger = hamburgerRef.current;
-    const menu = mobileMenuRef.current;
-
-    if (hamburger) {
-      const lines = hamburger.querySelectorAll(".hamburger-line");
-      if (newState) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
-      } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
-      }
-    }
-
-    if (menu) {
-      if (newState) {
-        gsap.set(menu, { visibility: "visible" });
-        gsap.fromTo(
-          menu,
-          { opacity: 0, y: 10, scaleY: 1 },
-          {
-            opacity: 1,
-            y: 0,
-            scaleY: 1,
-            duration: 0.3,
-            ease,
-            transformOrigin: "top center",
-          },
-        );
-      } else {
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          scaleY: 1,
-          duration: 0.2,
-          ease,
-          transformOrigin: "top center",
-          onComplete: () => {
-            gsap.set(menu, { visibility: "hidden" });
-          },
-        });
-      }
-    }
-
+    setIsMobileMenuOpen(!isMobileMenuOpen);
     onMobileMenuClick?.();
   };
 
@@ -344,10 +295,9 @@ const PillNav: React.FC<PillNavProps> = ({
           </Link>
 
           <button
-            className="mobile-menu-button flex md:hidden"
+            className={`mobile-menu-button flex md:hidden${isMobileMenuOpen ? " is-open" : ""}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
-            ref={hamburgerRef}
           >
             <span className="hamburger-line" />
             <span className="hamburger-line" />
@@ -355,7 +305,10 @@ const PillNav: React.FC<PillNavProps> = ({
         </div>
       </nav>
 
-      <div className="mobile-menu-popover md:hidden" ref={mobileMenuRef} style={cssVars}>
+      <div
+        className={`mobile-menu-popover md:hidden${isMobileMenuOpen ? " is-open" : ""}`}
+        style={cssVars}
+      >
         <ul className="mobile-menu-list">
           {items.map((item, i) => (
             <li key={item.href || `mobile-item-${i}`}>
