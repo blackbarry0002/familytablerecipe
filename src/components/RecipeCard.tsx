@@ -27,7 +27,10 @@ export function RecipeCard({ recipe, size = "md" }: { recipe: Recipe; size?: "sm
           {/* Save button — stop propagation so it doesn't double-fire the link */}
           <button
             aria-label="Save recipe"
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-card/95 backdrop-blur text-ink-soft hover:text-primary transition-colors shadow-sm"
           >
             <Heart className="h-4 w-4" />
@@ -46,7 +49,9 @@ export function RecipeCard({ recipe, size = "md" }: { recipe: Recipe; size?: "sm
 
         <div className="p-5">
           <div className="flex items-center justify-between text-xs text-ink-soft">
-            <span className="font-medium uppercase tracking-wider text-primary">{recipe.category}</span>
+            <span className="font-medium uppercase tracking-wider text-primary">
+              {recipe.category}
+            </span>
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3 w-3" /> {recipe.time}
             </span>
@@ -54,7 +59,9 @@ export function RecipeCard({ recipe, size = "md" }: { recipe: Recipe; size?: "sm
           <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-primary transition-colors">
             {recipe.title}
           </h3>
-          <p className="mt-1.5 text-xs text-ink-soft leading-relaxed line-clamp-2">{recipe.description}</p>
+          <p className="mt-1.5 text-xs text-ink-soft leading-relaxed line-clamp-2">
+            {recipe.description}
+          </p>
         </div>
       </Link>
     </article>

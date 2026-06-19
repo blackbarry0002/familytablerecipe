@@ -45,7 +45,8 @@ const base = (
   saves,
   servings: 4,
   difficulty: "Easy",
-  description: "A warm, family-favorite recipe with simple ingredients and a beautiful presentation.",
+  description:
+    "A warm, family-favorite recipe with simple ingredients and a beautiful presentation.",
   story:
     "This is the kind of dish that turns a regular evening into something memorable — slow, simple, and made to share.",
   ingredients: [
@@ -73,56 +74,87 @@ const base = (
 });
 
 export const recipes: Recipe[] = [
-  base("tomato-pappardelle", "Slow-Simmered Tomato Pappardelle", pasta, "35 min", 4.9, "Pasta", "1.2k", {
-    difficulty: "Medium",
-    description: "Hand-cut pappardelle bathed in a long-simmered San Marzano tomato sauce, finished with torn basil and Parmigiano.",
-    story: "A pot of crushed San Marzanos, sweet onion, and a long, quiet simmer — the sauce that fills the house and calls everyone to the table a little earlier.",
-    ingredients: [
-      "400g fresh pappardelle",
-      "800g San Marzano tomatoes, crushed",
-      "1 large sweet yellow onion, finely diced",
-      "4 garlic cloves, sliced",
-      "60ml cold-pressed olive oil",
-      "A small bunch of basil",
-      "60g Parmigiano-Reggiano, grated",
-      "Sea salt, cracked pepper",
-    ],
-    steps: [
-      "Warm the olive oil in a heavy pot over medium heat. Cook the onion until soft and translucent, 8 minutes.",
-      "Add the garlic and cook for 1 minute, just until fragrant.",
-      "Pour in the tomatoes, season generously, and bring to a gentle simmer.",
-      "Lower the heat and let the sauce quietly bubble for 25 minutes, stirring now and then.",
-      "Cook the pappardelle in heavily salted water until just al dente, then transfer directly into the sauce with a splash of pasta water.",
-      "Toss off heat with torn basil and most of the cheese. Plate, finish with more cheese and a thread of oil.",
-    ],
-  }),
+  base(
+    "tomato-pappardelle",
+    "Slow-Simmered Tomato Pappardelle",
+    pasta,
+    "35 min",
+    4.9,
+    "Pasta",
+    "1.2k",
+    {
+      difficulty: "Medium",
+      description:
+        "Hand-cut pappardelle bathed in a long-simmered San Marzano tomato sauce, finished with torn basil and Parmigiano.",
+      story:
+        "A pot of crushed San Marzanos, sweet onion, and a long, quiet simmer — the sauce that fills the house and calls everyone to the table a little earlier.",
+      ingredients: [
+        "400g fresh pappardelle",
+        "800g San Marzano tomatoes, crushed",
+        "1 large sweet yellow onion, finely diced",
+        "4 garlic cloves, sliced",
+        "60ml cold-pressed olive oil",
+        "A small bunch of basil",
+        "60g Parmigiano-Reggiano, grated",
+        "Sea salt, cracked pepper",
+      ],
+      steps: [
+        "Warm the olive oil in a heavy pot over medium heat. Cook the onion until soft and translucent, 8 minutes.",
+        "Add the garlic and cook for 1 minute, just until fragrant.",
+        "Pour in the tomatoes, season generously, and bring to a gentle simmer.",
+        "Lower the heat and let the sauce quietly bubble for 25 minutes, stirring now and then.",
+        "Cook the pappardelle in heavily salted water until just al dente, then transfer directly into the sauce with a splash of pasta water.",
+        "Toss off heat with torn basil and most of the cheese. Plate, finish with more cheese and a thread of oil.",
+      ],
+    },
+  ),
   base("garden-feta-bowl", "Garden Feta & Avocado Bowl", salad, "15 min", 4.7, "Healthy", "860", {
     description: "Crisp cucumber, ripe avocado, herby feta and a bright lemon-olive oil dressing.",
   }),
-  base("buttermilk-pancakes", "Buttermilk Berry Pancakes", pancakes, "25 min", 4.8, "Breakfast", "2.1k", {
-    description: "Tall, fluffy buttermilk pancakes stacked with seasonal berries and a slow drizzle of maple.",
-    ingredients: [
-      "250g all-purpose flour",
-      "2 tbsp sugar",
-      "1 tsp baking soda",
-      "1 tsp baking powder",
-      "Pinch of salt",
-      "350ml buttermilk",
-      "2 eggs",
-      "60g melted butter",
-      "Mixed berries & maple syrup, to serve",
-    ],
-  }),
-  base("chocolate-raspberry-cake", "Dark Chocolate Raspberry Cake", dessert, "1 hr", 4.9, "Desserts", "1.6k", {
-    difficulty: "Medium",
-    description: "Deep, fudgy chocolate layers with fresh raspberries and a silky ganache.",
-  }),
+  base(
+    "buttermilk-pancakes",
+    "Buttermilk Berry Pancakes",
+    pancakes,
+    "25 min",
+    4.8,
+    "Breakfast",
+    "2.1k",
+    {
+      description:
+        "Tall, fluffy buttermilk pancakes stacked with seasonal berries and a slow drizzle of maple.",
+      ingredients: [
+        "250g all-purpose flour",
+        "2 tbsp sugar",
+        "1 tsp baking soda",
+        "1 tsp baking powder",
+        "Pinch of salt",
+        "350ml buttermilk",
+        "2 eggs",
+        "60g melted butter",
+        "Mixed berries & maple syrup, to serve",
+      ],
+    },
+  ),
+  base(
+    "chocolate-raspberry-cake",
+    "Dark Chocolate Raspberry Cake",
+    dessert,
+    "1 hr",
+    4.9,
+    "Desserts",
+    "1.6k",
+    {
+      difficulty: "Medium",
+      description: "Deep, fudgy chocolate layers with fresh raspberries and a silky ganache.",
+    },
+  ),
   base("harvest-buddha-bowl", "Harvest Buddha Bowl", bowl, "30 min", 4.8, "Vegetarian", "740", {
     description: "Roasted squash, ancient grains, kale, and a creamy tahini drizzle.",
   }),
   base("lemon-herb-chicken", "Lemon Herb Roast Chicken", chicken, "1h 20", 4.9, "Dinner", "3.4k", {
     difficulty: "Medium",
-    description: "A bronzed, herb-rubbed roast chicken with crispy skin and a bright lemon pan sauce.",
+    description:
+      "A bronzed, herb-rubbed roast chicken with crispy skin and a bright lemon pan sauce.",
   }),
   base("avocado-egg-toast", "Soft Avocado Egg Toast", toast, "10 min", 4.6, "Breakfast", "520", {
     description: "Thick-cut sourdough, smashed avocado, jammy egg and chili flakes.",
@@ -136,7 +168,8 @@ export const recipes: Recipe[] = [
   base("artisan-sourdough", "Slow Artisan Sourdough", bread, "12 hr", 4.9, "Bread", "1.4k", {
     difficulty: "Hard",
     description: "A patient, golden-crust country loaf with an open, tender crumb.",
-    story: "Bread is a quiet conversation between flour, water and time — set it in motion the night before, and let your kitchen do the rest.",
+    story:
+      "Bread is a quiet conversation between flour, water and time — set it in motion the night before, and let your kitchen do the rest.",
   }),
   base("mushroom-risotto", "Wild Mushroom Risotto", risotto, "40 min", 4.8, "Dinner", "1.1k", {
     difficulty: "Medium",

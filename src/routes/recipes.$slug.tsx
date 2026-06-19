@@ -1,7 +1,17 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
-  ArrowLeft, ArrowRight, ChefHat, Clock, Flame, Heart,
-  Printer, Share2, Star, Users, Utensils, CheckCircle2,
+  ArrowLeft,
+  ArrowRight,
+  ChefHat,
+  Clock,
+  Flame,
+  Heart,
+  Printer,
+  Share2,
+  Star,
+  Users,
+  Utensils,
+  CheckCircle2,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -42,7 +52,9 @@ export const Route = createFileRoute("/recipes/$slug")({
 
 function RecipeDetail() {
   const { recipe } = Route.useLoaderData() as { recipe: import("@/lib/recipes").Recipe };
-  const related = recipes.filter((r) => r.slug !== recipe.slug && r.category === recipe.category).slice(0, 3);
+  const related = recipes
+    .filter((r) => r.slug !== recipe.slug && r.category === recipe.category)
+    .slice(0, 3);
   const fallback = recipes.filter((r) => r.slug !== recipe.slug).slice(0, 3);
   const more = related.length >= 3 ? related : fallback;
   const [checkedSteps, setCheckedSteps] = useState<Set<number>>(new Set());
@@ -50,7 +62,11 @@ function RecipeDetail() {
   const toggleStep = (i: number) =>
     setCheckedSteps((prev) => {
       const next = new Set(prev);
-      next.has(i) ? next.delete(i) : next.add(i);
+      if (next.has(i)) {
+        next.delete(i);
+      } else {
+        next.add(i);
+      }
       return next;
     });
 
@@ -58,28 +74,28 @@ function RecipeDetail() {
     recipe.difficulty === "Easy"
       ? "text-emerald-600 bg-emerald-50"
       : recipe.difficulty === "Medium"
-      ? "text-amber-600 bg-amber-50"
-      : "text-rose-600 bg-rose-50";
+        ? "text-amber-600 bg-amber-50"
+        : "text-rose-600 bg-rose-50";
 
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Recipe",
-    "name": recipe.title,
-    "image": [recipe.image],
-    "description": recipe.description,
-    "recipeCategory": recipe.category,
-    "recipeYield": `${recipe.servings} servings`,
-    "recipeIngredient": recipe.ingredients,
-    "recipeInstructions": recipe.steps.map((step, index) => ({
+    name: recipe.title,
+    image: [recipe.image],
+    description: recipe.description,
+    recipeCategory: recipe.category,
+    recipeYield: `${recipe.servings} servings`,
+    recipeIngredient: recipe.ingredients,
+    recipeInstructions: recipe.steps.map((step, index) => ({
       "@type": "HowToStep",
-      "text": step,
-      "position": index + 1
+      text: step,
+      position: index + 1,
     })),
-    "aggregateRating": {
+    aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": recipe.rating,
-      "reviewCount": recipe.saves || 120
-    }
+      ratingValue: recipe.rating,
+      reviewCount: recipe.saves || 120,
+    },
   };
 
   return (
@@ -137,7 +153,9 @@ function RecipeDetail() {
                 </div>
                 <div>
                   <div className="text-[10px] text-ink-soft uppercase tracking-wider">Saved by</div>
-                  <div className="font-display font-semibold text-sm">{recipe.saves ?? "—"} cooks</div>
+                  <div className="font-display font-semibold text-sm">
+                    {recipe.saves ?? "—"} cooks
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,17 +177,27 @@ function RecipeDetail() {
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
               <StatCard icon={Clock} label="Prep + cook" value={recipe.time} />
               <StatCard icon={Users} label="Servings" value={`${recipe.servings} people`} />
-              <StatCard icon={ChefHat} label="Difficulty" value={recipe.difficulty} valueClass={difficultyColor} />
+              <StatCard
+                icon={ChefHat}
+                label="Difficulty"
+                value={recipe.difficulty}
+                valueClass={difficultyColor}
+              />
               <StatCard icon={Flame} label="Calories" value={recipe.nutrition?.[0]?.value ?? "—"} />
             </div>
 
             {/* Tags */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {[recipe.category, recipe.difficulty, "Family-friendly", "Tested recipe"].map((tag) => (
-                <span key={tag} className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-display font-medium text-ink-soft">
-                  {tag}
-                </span>
-              ))}
+              {[recipe.category, recipe.difficulty, "Family-friendly", "Tested recipe"].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-display font-medium text-ink-soft"
+                  >
+                    {tag}
+                  </span>
+                ),
+              )}
             </div>
 
             {/* CTA row */}
@@ -198,7 +226,6 @@ function RecipeDetail() {
       {/* ── INGREDIENTS + METHOD ──────────────────────────── */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-20">
         <div className="grid gap-8 lg:grid-cols-[360px_1fr]">
-
           {/* Ingredients panel — sticky */}
           <Reveal className="lg:sticky lg:top-28 self-start space-y-5">
             <div className="rounded-[2rem] bg-ink text-cream p-7 sm:p-9">
@@ -227,7 +254,9 @@ function RecipeDetail() {
                 <div className="grid grid-cols-2 gap-3">
                   {recipe.nutrition.map((n) => (
                     <div key={n.label} className="rounded-2xl bg-cream-deep p-4">
-                      <div className="text-[10px] uppercase tracking-wider text-ink-soft">{n.label}</div>
+                      <div className="text-[10px] uppercase tracking-wider text-ink-soft">
+                        {n.label}
+                      </div>
                       <div className="font-display text-xl font-bold mt-0.5">{n.value}</div>
                     </div>
                   ))}
@@ -238,9 +267,7 @@ function RecipeDetail() {
 
           {/* Method */}
           <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight">
-              How to make it
-            </h2>
+            <h2 className="font-display text-3xl font-bold tracking-tight">How to make it</h2>
             <p className="mt-2 text-sm text-ink-soft">Tap a step to mark it complete</p>
 
             <ol className="mt-7 space-y-4">
@@ -268,7 +295,9 @@ function RecipeDetail() {
                       )}
                     </div>
                     <div className="flex-1">
-                      <p className={`leading-relaxed transition-colors ${done ? "line-through text-ink-soft" : "text-ink"}`}>
+                      <p
+                        className={`leading-relaxed transition-colors ${done ? "line-through text-ink-soft" : "text-ink"}`}
+                      >
                         {step}
                       </p>
                     </div>
@@ -351,7 +380,9 @@ function StatCard({
         <Icon className="h-3.5 w-3.5" />
         <span className="text-[10px] uppercase tracking-wider font-medium">{label}</span>
       </div>
-      <div className={`font-display font-bold text-sm mt-0.5 rounded-full px-2 py-0.5 self-start ${valueClass || "text-ink bg-transparent px-0 py-0"}`}>
+      <div
+        className={`font-display font-bold text-sm mt-0.5 rounded-full px-2 py-0.5 self-start ${valueClass || "text-ink bg-transparent px-0 py-0"}`}
+      >
         {value}
       </div>
     </div>

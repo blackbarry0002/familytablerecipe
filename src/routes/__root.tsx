@@ -75,9 +75,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Family Table Recipe — Gather, Cook, Share" },
-      { name: "description", content: "Premium family recipes for everyday cooking — breakfast, dinner, desserts and seasonal favourites curated by Family Table." },
+      {
+        name: "description",
+        content:
+          "Premium family recipes for everyday cooking — breakfast, dinner, desserts and seasonal favourites curated by Family Table.",
+      },
       { property: "og:title", content: "Family Table Recipe" },
-      { property: "og:description", content: "Premium family recipes for everyday cooking and gatherings." },
+      {
+        property: "og:description",
+        content: "Premium family recipes for everyday cooking and gatherings.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -85,7 +92,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

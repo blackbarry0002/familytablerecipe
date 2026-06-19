@@ -1,7 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { ArrowRight, Clock, Heart, Leaf, Quote, Sparkles, Star, Utensils, Wind, Snowflake, Sprout, Sun } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  Heart,
+  Leaf,
+  Quote,
+  Sparkles,
+  Star,
+  Utensils,
+  Wind,
+  Snowflake,
+  Sprout,
+  Sun,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Reveal } from "@/components/Reveal";
@@ -30,7 +43,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Family Table Recipe — Gather, Cook, Share" },
-      { name: "description", content: "Discover beautifully crafted family recipes — easy weeknight meals, weekend favourites and seasonal classics." },
+      {
+        name: "description",
+        content:
+          "Discover beautifully crafted family recipes — easy weeknight meals, weekend favourites and seasonal classics.",
+      },
       { property: "og:title", content: "Family Table Recipe" },
       { property: "og:description", content: "Discover beautifully crafted family recipes." },
     ],
@@ -74,17 +91,44 @@ function Hero() {
     const ctx = gsap.context(() => {
       // Title reveal
       const heroLineSpans = el.querySelectorAll(".hero-line span");
-      if (heroLineSpans.length) gsap.from(heroLineSpans, { yPercent: 110, duration: 1.1, ease: "power4.out", stagger: 0.08 });
+      if (heroLineSpans.length)
+        gsap.from(heroLineSpans, {
+          yPercent: 110,
+          duration: 1.1,
+          ease: "power4.out",
+          stagger: 0.08,
+        });
 
       const heroFades = el.querySelectorAll(".hero-fade");
-      if (heroFades.length) gsap.from(heroFades, { opacity: 0, y: 24, duration: 1, ease: "power3.out", delay: 0.4, stagger: 0.08 });
+      if (heroFades.length)
+        gsap.from(heroFades, {
+          opacity: 0,
+          y: 24,
+          duration: 1,
+          ease: "power3.out",
+          delay: 0.4,
+          stagger: 0.08,
+        });
 
       // Orbit rotation
       if (orbit.current) {
-        gsap.to(orbit.current, { rotation: 360, duration: 60, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
+        gsap.to(orbit.current, {
+          rotation: 360,
+          duration: 60,
+          ease: "none",
+          repeat: -1,
+          transformOrigin: "50% 50%",
+        });
       }
       const orbitDishes = el.querySelectorAll(".orbit-dish");
-      if (orbitDishes.length) gsap.to(orbitDishes, { rotation: -360, duration: 60, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
+      if (orbitDishes.length)
+        gsap.to(orbitDishes, {
+          rotation: -360,
+          duration: 60,
+          ease: "none",
+          repeat: -1,
+          transformOrigin: "50% 50%",
+        });
 
       // Parallax on mouse move (only scoped elements)
       const parallaxEls = el.querySelectorAll(".hero-parallax");
@@ -92,7 +136,8 @@ function Hero() {
         const r = el.getBoundingClientRect();
         const x = (e.clientX - r.left - r.width / 2) / r.width;
         const y = (e.clientY - r.top - r.height / 2) / r.height;
-        if (parallaxEls.length) gsap.to(parallaxEls, { x: x * 18, y: y * 18, duration: 0.8, ease: "power2.out" });
+        if (parallaxEls.length)
+          gsap.to(parallaxEls, { x: x * 18, y: y * 18, duration: 0.8, ease: "power2.out" });
       };
       el.addEventListener("mousemove", onMove);
       return () => el.removeEventListener("mousemove", onMove);
@@ -107,42 +152,72 @@ function Hero() {
     <section ref={root} className="mx-auto max-w-7xl pt-2">
       <div className="relative overflow-hidden rounded-[2.5rem] bg-[radial-gradient(ellipse_at_top_right,oklch(0.95_0.06_70),oklch(0.97_0.02_80)_60%)] px-6 sm:px-10 lg:px-14 pt-12 lg:pt-16 pb-16 lg:pb-24">
         {/* Decorative grain */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, oklch(0.18 0.02 60) 1px, transparent 0)", backgroundSize: "22px 22px" }} />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, oklch(0.18 0.02 60) 1px, transparent 0)",
+            backgroundSize: "22px 22px",
+          }}
+        />
         {/* Centred watermark */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center font-display font-black text-[22vw] leading-none text-ink/[0.04] select-none tracking-tighter">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 flex items-center justify-center font-display font-black text-[22vw] leading-none text-ink/[0.04] select-none tracking-tighter"
+        >
           gather
         </div>
 
         <div className="relative grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
           <div>
-            <span className="chip hero-fade"><Sparkles className="h-3.5 w-3.5 text-primary" /> Autumn Edition · Vol. 04</span>
+            <span className="chip hero-fade">
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> Autumn Edition · Vol. 04
+            </span>
 
             <h1 className="mt-6 font-display font-bold tracking-tight text-[2.75rem] sm:text-6xl lg:text-[5.5rem] leading-[0.92]">
-              <span className="hero-line block overflow-hidden"><span className="block">Where every</span></span>
-              <span className="hero-line block overflow-hidden"><span className="block italic font-serif font-normal text-accent-gradient">recipe</span></span>
-              <span className="hero-line block overflow-hidden"><span className="block">tells a story.</span></span>
+              <span className="hero-line block overflow-hidden">
+                <span className="block">Where every</span>
+              </span>
+              <span className="hero-line block overflow-hidden">
+                <span className="block italic font-serif font-normal text-accent-gradient">
+                  recipe
+                </span>
+              </span>
+              <span className="hero-line block overflow-hidden">
+                <span className="block">tells a story.</span>
+              </span>
             </h1>
 
             <p className="hero-fade mt-7 max-w-md text-base sm:text-lg text-ink-soft leading-relaxed">
-              500+ slow-tested family recipes — for weeknights you'd rather forget and Sundays you'll want to remember.
+              500+ slow-tested family recipes — for weeknights you'd rather forget and Sundays
+              you'll want to remember.
             </p>
 
             <div className="hero-fade mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/recipes" className="btn-primary">Start cooking <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/categories" className="btn-ghost">Browse categories</Link>
+              <Link to="/recipes" className="btn-primary">
+                Start cooking <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/categories" className="btn-ghost">
+                Browse categories
+              </Link>
             </div>
 
             <div className="hero-fade mt-10 flex items-center gap-6">
               <div className="flex -space-x-3">
                 {[salad, bowl, dessert, pasta].map((src, i) => (
-                  <div key={i} className="h-10 w-10 rounded-full ring-2 ring-background overflow-hidden">
+                  <div
+                    key={i}
+                    className="h-10 w-10 rounded-full ring-2 ring-background overflow-hidden"
+                  >
                     <img src={src} alt="" className="h-full w-full object-cover" />
                   </div>
                 ))}
               </div>
               <div>
                 <div className="flex items-center gap-1 text-primary">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                  ))}
                 </div>
                 <div className="text-xs text-ink-soft mt-1">Rated 4.9 by 12,000+ home cooks</div>
               </div>
@@ -157,7 +232,11 @@ function Hero() {
 
             {/* Center plate */}
             <div className="hero-parallax absolute inset-[22%] rounded-full overflow-hidden shadow-[var(--shadow-float)] ring-8 ring-background">
-              <img src={heroSpread} alt="Featured autumn spread" className="h-full w-full object-cover" />
+              <img
+                src={heroSpread}
+                alt="Featured autumn spread"
+                className="h-full w-full object-cover"
+              />
             </div>
 
             {/* Orbiting dishes — mobile: h-20 w-20 · tablet: h-28 w-28 · desktop: h-36 w-36 */}
@@ -221,9 +300,21 @@ function Marquee() {
 /* ---------------- FEATURES ---------------- */
 function Features() {
   const items = [
-    { icon: Utensils, title: "Easy Recipes", text: "Everyday meals with clear steps and short ingredient lists." },
-    { icon: Heart, title: "Family Favorites", text: "The dishes everyone keeps asking for, weekend after weekend." },
-    { icon: Clock, title: "Quick Meals", text: "Beautiful dinners on the table in 30 minutes or less." },
+    {
+      icon: Utensils,
+      title: "Easy Recipes",
+      text: "Everyday meals with clear steps and short ingredient lists.",
+    },
+    {
+      icon: Heart,
+      title: "Family Favorites",
+      text: "The dishes everyone keeps asking for, weekend after weekend.",
+    },
+    {
+      icon: Clock,
+      title: "Quick Meals",
+      text: "Beautiful dinners on the table in 30 minutes or less.",
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl mt-24">
@@ -261,12 +352,16 @@ function Popular() {
     <section className="mx-auto max-w-7xl mt-24">
       <div className="flex items-end justify-between gap-4 mb-10">
         <Reveal>
-          <span className="chip"><Sparkles className="h-3.5 w-3.5 text-primary" /> Trending this week</span>
+          <span className="chip">
+            <Sparkles className="h-3.5 w-3.5 text-primary" /> Trending this week
+          </span>
           <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight">
             Popular <span className="text-accent-gradient">Recipes</span> Today
           </h2>
         </Reveal>
-        <Link to="/recipes" className="btn-ghost shrink-0 !py-2.5 !px-5 text-sm">View all</Link>
+        <Link to="/recipes" className="btn-ghost shrink-0 !py-2.5 !px-5 text-sm">
+          View all
+        </Link>
       </div>
 
       <ScrollStack
@@ -328,7 +423,8 @@ function Popular() {
                     </span>
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm font-display font-semibold opacity-80 group-hover:opacity-100 transition-opacity">
-                    Cook this <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    Cook this{" "}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </div>
@@ -341,11 +437,44 @@ function Popular() {
 }
 
 /* ---------------- SEASONAL ---------------- */
-const seasonData: Record<string, { icon: React.ComponentType<any>; label: string; palette: string; accent: string; picks: number[] }> = {
-  Autumn: { icon: Wind, label: "Peak autumn produce", palette: "from-amber-950/90 via-amber-900/60", accent: "bg-amber-500", picks: [2, 3, 4, 5] },
-  Winter: { icon: Snowflake, label: "Cold-weather comfort", palette: "from-slate-950/90 via-slate-800/60", accent: "bg-sky-400", picks: [0, 1, 6, 7] },
-  Spring: { icon: Sprout, label: "Fresh seasonal starts", palette: "from-emerald-950/90 via-emerald-800/60", accent: "bg-emerald-400", picks: [3, 4, 5, 6] },
-  Summer: { icon: Sun, label: "Light & bright plates", palette: "from-rose-950/90 via-orange-800/60", accent: "bg-rose-400", picks: [1, 2, 4, 5] },
+const seasonData: Record<
+  string,
+  {
+    icon: React.ComponentType<any>;
+    label: string;
+    palette: string;
+    accent: string;
+    picks: number[];
+  }
+> = {
+  Autumn: {
+    icon: Wind,
+    label: "Peak autumn produce",
+    palette: "from-amber-950/90 via-amber-900/60",
+    accent: "bg-amber-500",
+    picks: [2, 3, 4, 5],
+  },
+  Winter: {
+    icon: Snowflake,
+    label: "Cold-weather comfort",
+    palette: "from-slate-950/90 via-slate-800/60",
+    accent: "bg-sky-400",
+    picks: [0, 1, 6, 7],
+  },
+  Spring: {
+    icon: Sprout,
+    label: "Fresh seasonal starts",
+    palette: "from-emerald-950/90 via-emerald-800/60",
+    accent: "bg-emerald-400",
+    picks: [3, 4, 5, 6],
+  },
+  Summer: {
+    icon: Sun,
+    label: "Light & bright plates",
+    palette: "from-rose-950/90 via-orange-800/60",
+    accent: "bg-rose-400",
+    picks: [1, 2, 4, 5],
+  },
 };
 
 function Seasonal() {
@@ -360,12 +489,15 @@ function Seasonal() {
       {/* Header row */}
       <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
         <div>
-          <span className="chip"><Leaf className="h-3.5 w-3.5 text-primary" /> Cooking with the season</span>
+          <span className="chip">
+            <Leaf className="h-3.5 w-3.5 text-primary" /> Cooking with the season
+          </span>
           <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight">
             What's good <span className="text-accent-gradient">right now</span>.
           </h2>
           <p className="mt-3 text-ink-soft max-w-md text-sm leading-relaxed">
-            Recipes built around peak produce — roasted squash, slow-braised greens, warming spices and orchard fruit.
+            Recipes built around peak produce — roasted squash, slow-braised greens, warming spices
+            and orchard fruit.
           </p>
         </div>
         <div className="flex gap-2 shrink-0">
@@ -390,7 +522,10 @@ function Seasonal() {
       </Reveal>
 
       {/* Magazine grid */}
-      <Reveal stagger className="grid gap-4 lg:grid-cols-[1.6fr_1fr_1fr] lg:grid-rows-2 lg:h-[560px]">
+      <Reveal
+        stagger
+        className="grid gap-4 lg:grid-cols-[1.6fr_1fr_1fr] lg:grid-rows-2 lg:h-[560px]"
+      >
         {/* Large featured card */}
         <Link
           to="/recipes/$slug"
@@ -413,7 +548,9 @@ function Seasonal() {
           </div>
           {/* Bottom info */}
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-cream/70 font-medium">{featured.category}</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-cream/70 font-medium">
+              {featured.category}
+            </span>
             <h3 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold text-cream leading-tight max-w-xs">
               {featured.title}
             </h3>
@@ -422,7 +559,8 @@ function Seasonal() {
                 <Clock className="h-3 w-3" /> {featured.time}
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-sm px-3 py-1.5 text-xs text-cream font-medium">
-                <Star className="h-3 w-3 fill-current text-amber-400" /> {featured.rating.toFixed(1)}
+                <Star className="h-3 w-3 fill-current text-amber-400" />{" "}
+                {featured.rating.toFixed(1)}
               </span>
             </div>
             <div className="mt-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -449,8 +587,12 @@ function Seasonal() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
             <div className="absolute inset-0 p-5 flex flex-col justify-end">
-              <span className="text-[10px] uppercase tracking-wider text-cream/70 font-medium">{r.category}</span>
-              <h3 className="mt-1 font-display text-base sm:text-lg font-bold text-cream leading-tight">{r.title}</h3>
+              <span className="text-[10px] uppercase tracking-wider text-cream/70 font-medium">
+                {r.category}
+              </span>
+              <h3 className="mt-1 font-display text-base sm:text-lg font-bold text-cream leading-tight">
+                {r.title}
+              </h3>
               <span className="mt-2 text-xs text-cream/60 inline-flex items-center gap-1">
                 <Clock className="h-3 w-3" /> {r.time}
               </span>
@@ -473,26 +615,47 @@ function Featured() {
       <Reveal className="overflow-hidden rounded-[2.5rem] bg-card shadow-[var(--shadow-card)]">
         <div className="grid lg:grid-cols-[1.05fr_1fr]">
           <div className="relative aspect-[5/4] lg:aspect-auto">
-            <img src={pasta} alt="Featured pasta recipe" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <img
+              src={pasta}
+              alt="Featured pasta recipe"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
             <span className="absolute top-5 left-5 chip !bg-card/95">⭐ Featured this week</span>
           </div>
           <div className="p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">The Sunday Edition</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
+              The Sunday Edition
+            </span>
             <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.05]">
               Slow-Simmered Tomato Pappardelle, with a story.
             </h2>
             <p className="mt-5 text-ink-soft leading-relaxed">
-              A pot of crushed San Marzanos, sweet onion, and a long, quiet simmer — the kind of sauce that fills the house and asks everyone to come sit down a little earlier.
+              A pot of crushed San Marzanos, sweet onion, and a long, quiet simmer — the kind of
+              sauce that fills the house and asks everyone to come sit down a little earlier.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
-              {["San Marzano tomatoes", "Fresh pappardelle", "Sweet yellow onion", "Garlic & basil", "Parmigiano-Reggiano", "Cold-press olive oil"].map((i) => (
+              {[
+                "San Marzano tomatoes",
+                "Fresh pappardelle",
+                "Sweet yellow onion",
+                "Garlic & basil",
+                "Parmigiano-Reggiano",
+                "Cold-press olive oil",
+              ].map((i) => (
                 <li key={i} className="flex items-center gap-2 text-ink-soft">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {i}
                 </li>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/recipes/$slug" params={{ slug: "tomato-pappardelle" }} className="btn-accent">Read the recipe <ArrowRight className="h-4 w-4" /></Link>
+              <Link
+                to="/recipes/$slug"
+                params={{ slug: "tomato-pappardelle" }}
+                className="btn-accent"
+              >
+                Read the recipe <ArrowRight className="h-4 w-4" />
+              </Link>
               <button className="btn-ghost">Save for later</button>
             </div>
           </div>
@@ -513,21 +676,78 @@ function BentoFavorites() {
         </h2>
       </Reveal>
       <Reveal stagger className="mt-10 grid gap-5 lg:grid-cols-4 lg:grid-rows-2 lg:h-[640px]">
-        <BentoCard slug="buttermilk-pancakes" image={pancakes} title="Buttermilk Berry Pancakes" tag="Breakfast" className="lg:col-span-2 lg:row-span-1" />
-        <BentoCard slug="chocolate-raspberry-cake" image={dessert} title="Dark Chocolate Cake" tag="Dessert" className="lg:col-span-1" />
-        <BentoCard slug="harvest-buddha-bowl" image={bowl} title="Harvest Buddha Bowl" tag="Healthy" className="lg:col-span-1" />
-        <BentoCard slug="avocado-egg-toast" image={toast} title="Avocado Egg Toast" tag="Breakfast" className="lg:col-span-1" />
-        <BentoCard slug="garden-feta-bowl" image={salad} title="Garden Feta Bowl" tag="Lunch" className="lg:col-span-1" />
-        <BentoCard slug="tomato-pappardelle" image={pasta} title="Sunday Pappardelle" tag="Dinner" className="lg:col-span-2" />
+        <BentoCard
+          slug="buttermilk-pancakes"
+          image={pancakes}
+          title="Buttermilk Berry Pancakes"
+          tag="Breakfast"
+          className="lg:col-span-2 lg:row-span-1"
+        />
+        <BentoCard
+          slug="chocolate-raspberry-cake"
+          image={dessert}
+          title="Dark Chocolate Cake"
+          tag="Dessert"
+          className="lg:col-span-1"
+        />
+        <BentoCard
+          slug="harvest-buddha-bowl"
+          image={bowl}
+          title="Harvest Buddha Bowl"
+          tag="Healthy"
+          className="lg:col-span-1"
+        />
+        <BentoCard
+          slug="avocado-egg-toast"
+          image={toast}
+          title="Avocado Egg Toast"
+          tag="Breakfast"
+          className="lg:col-span-1"
+        />
+        <BentoCard
+          slug="garden-feta-bowl"
+          image={salad}
+          title="Garden Feta Bowl"
+          tag="Lunch"
+          className="lg:col-span-1"
+        />
+        <BentoCard
+          slug="tomato-pappardelle"
+          image={pasta}
+          title="Sunday Pappardelle"
+          tag="Dinner"
+          className="lg:col-span-2"
+        />
       </Reveal>
     </section>
   );
 }
 
-function BentoCard({ image, title, tag, slug, className = "" }: { image: string; title: string; tag: string; slug: string; className?: string }) {
+function BentoCard({
+  image,
+  title,
+  tag,
+  slug,
+  className = "",
+}: {
+  image: string;
+  title: string;
+  tag: string;
+  slug: string;
+  className?: string;
+}) {
   return (
-    <Link to="/recipes/$slug" params={{ slug }} className={`group relative overflow-hidden rounded-[2rem] bg-card card-floating-hover min-h-64 ${className}`}>
-      <img src={image} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+    <Link
+      to="/recipes/$slug"
+      params={{ slug }}
+      className={`group relative overflow-hidden rounded-[2rem] bg-card card-floating-hover min-h-64 ${className}`}
+    >
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
       <div className="absolute inset-0 flex flex-col justify-end p-6">
         <span className="chip self-start !bg-card/90 backdrop-blur">{tag}</span>
@@ -540,9 +760,24 @@ function BentoCard({ image, title, tag, slug, className = "" }: { image: string;
 /* ---------------- PROCESS / HOW WE COOK ---------------- */
 function Process() {
   const steps = [
-    { n: "01", title: "Source", text: "Start with peak-season produce and the best ingredients you can reasonably find.", img: herb },
-    { n: "02", title: "Slow it down", text: "Build flavor in layers — aromatics, patience, a little salt at every stage.", img: kneading },
-    { n: "03", title: "Share it", text: "Plate it generously, bring it to the middle of the table, and pour something cold.", img: bread },
+    {
+      n: "01",
+      title: "Source",
+      text: "Start with peak-season produce and the best ingredients you can reasonably find.",
+      img: herb,
+    },
+    {
+      n: "02",
+      title: "Slow it down",
+      text: "Build flavor in layers — aromatics, patience, a little salt at every stage.",
+      img: kneading,
+    },
+    {
+      n: "03",
+      title: "Share it",
+      text: "Plate it generously, bring it to the middle of the table, and pour something cold.",
+      img: bread,
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl mt-28">
@@ -556,8 +791,15 @@ function Process() {
         {steps.map((s) => (
           <article key={s.n} className="card-floating card-floating-hover overflow-hidden">
             <div className="relative aspect-[5/4]">
-              <img src={s.img} alt={s.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              <span className="absolute top-4 left-4 font-display font-bold text-cream/90 text-sm bg-ink/60 backdrop-blur rounded-full px-3 py-1">{s.n}</span>
+              <img
+                src={s.img}
+                alt={s.title}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <span className="absolute top-4 left-4 font-display font-bold text-cream/90 text-sm bg-ink/60 backdrop-blur rounded-full px-3 py-1">
+                {s.n}
+              </span>
             </div>
             <div className="p-6">
               <h3 className="font-display text-xl font-semibold">{s.title}</h3>
@@ -573,14 +815,28 @@ function Process() {
 /* ---------------- TESTIMONIALS ---------------- */
 function Testimonials() {
   const quotes = [
-    { q: "These are the only recipes I trust for Sunday dinner. Every single one has worked.", who: "Marta R.", role: "Home cook · Barcelona" },
-    { q: "Beautifully written and actually doable on a Tuesday night. My family is obsessed with the risotto.", who: "James K.", role: "Dad of three · Brooklyn" },
-    { q: "It feels like cooking with a friend who happens to be a great chef. Calm, warm, and never preachy.", who: "Aiko M.", role: "Food writer · Kyoto" },
+    {
+      q: "These are the only recipes I trust for Sunday dinner. Every single one has worked.",
+      who: "Marta R.",
+      role: "Home cook · Barcelona",
+    },
+    {
+      q: "Beautifully written and actually doable on a Tuesday night. My family is obsessed with the risotto.",
+      who: "James K.",
+      role: "Dad of three · Brooklyn",
+    },
+    {
+      q: "It feels like cooking with a friend who happens to be a great chef. Calm, warm, and never preachy.",
+      who: "Aiko M.",
+      role: "Food writer · Kyoto",
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl mt-28">
       <Reveal className="text-center">
-        <span className="chip mx-auto"><Heart className="h-3.5 w-3.5 text-primary" /> Loved at the table</span>
+        <span className="chip mx-auto">
+          <Heart className="h-3.5 w-3.5 text-primary" /> Loved at the table
+        </span>
         <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight">
           Cooked, plated, and <span className="text-accent-gradient">shared</span>.
         </h2>
@@ -589,7 +845,9 @@ function Testimonials() {
         {quotes.map((t) => (
           <figure key={t.who} className="card-floating card-floating-hover p-7 flex flex-col">
             <Quote className="h-7 w-7 text-primary" />
-            <blockquote className="mt-4 font-display text-lg leading-snug flex-1">"{t.q}"</blockquote>
+            <blockquote className="mt-4 font-display text-lg leading-snug flex-1">
+              "{t.q}"
+            </blockquote>
             <figcaption className="mt-6 pt-5 border-t border-border">
               <div className="font-display font-semibold">{t.who}</div>
               <div className="text-xs text-ink-soft mt-0.5">{t.role}</div>
@@ -607,7 +865,12 @@ function Inspiration() {
     <section className="mx-auto max-w-7xl mt-28">
       <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <Reveal className="relative overflow-hidden rounded-[2.5rem] min-h-[420px]">
-          <img src={familyCooking} alt="Family cooking together" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+          <img
+            src={familyCooking}
+            alt="Family cooking together"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-tr from-ink/70 via-ink/20 to-transparent" />
           <div className="relative h-full flex flex-col justify-end p-8 sm:p-12">
             <span className="chip self-start !bg-card/90">Cooking Inspiration</span>
@@ -670,7 +933,8 @@ function GallerySection() {
             A Taste of <span className="text-accent-gradient">Our Table</span>
           </h2>
           <p className="mt-3 text-ink-soft max-w-md mx-auto text-sm leading-relaxed">
-            Drag to spin the carousel or use the arrow keys to browse through some of our most beloved plated dishes.
+            Drag to spin the carousel or use the arrow keys to browse through some of our most
+            beloved plated dishes.
           </p>
         </Reveal>
       </div>
@@ -696,18 +960,34 @@ function Newsletter() {
   return (
     <section className="mx-auto max-w-7xl my-28">
       <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-card p-8 sm:p-14">
-        <img src={ingredientsFlatlay} alt="" loading="lazy" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-25 hidden md:block" />
+        <img
+          src={ingredientsFlatlay}
+          alt=""
+          loading="lazy"
+          className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-25 hidden md:block"
+        />
         <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-transparent to-card hidden md:block" />
         <div className="relative max-w-xl">
-          <span className="chip"><Sparkles className="h-3.5 w-3.5 text-primary" /> The Weekly</span>
+          <span className="chip">
+            <Sparkles className="h-3.5 w-3.5 text-primary" /> The Weekly
+          </span>
           <h3 className="mt-4 font-display text-3xl sm:text-4xl font-bold leading-tight">
             One beautiful recipe in your inbox, every Sunday.
           </h3>
           <p className="mt-4 text-ink-soft">
-            No spam, no ads — just the week's most-loved recipe and a few seasonal ideas to inspire your table.
+            No spam, no ads — just the week's most-loved recipe and a few seasonal ideas to inspire
+            your table.
           </p>
-          <form className="mt-7 grid grid-cols-[minmax(0,1fr)_auto] gap-2 rounded-full border border-border bg-background p-1.5 max-w-md" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" required placeholder="your@email.com" className="bg-transparent px-5 py-3 text-sm outline-none placeholder:text-ink-soft" />
+          <form
+            className="mt-7 grid grid-cols-[minmax(0,1fr)_auto] gap-2 rounded-full border border-border bg-background p-1.5 max-w-md"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="email"
+              required
+              placeholder="your@email.com"
+              className="bg-transparent px-5 py-3 text-sm outline-none placeholder:text-ink-soft"
+            />
             <button className="btn-accent !py-2.5 !px-5 text-sm">Subscribe</button>
           </form>
         </div>

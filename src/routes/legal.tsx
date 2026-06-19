@@ -8,7 +8,10 @@ export const Route = createFileRoute("/legal")({
   head: () => ({
     meta: [
       { title: "Legal — Family Table Recipe" },
-      { name: "description", content: "Privacy policy, terms of service, and cookie policy for Family Table Recipe." },
+      {
+        name: "description",
+        content: "Privacy policy, terms of service, and cookie policy for Family Table Recipe.",
+      },
     ],
   }),
   component: Legal,
@@ -49,7 +52,10 @@ function Legal() {
                   backgroundSize: "22px 22px",
                 }}
               />
-              <div aria-hidden className="pointer-events-none absolute -bottom-10 -right-6 font-display font-black text-[16vw] leading-none text-white/[0.04] select-none tracking-tighter">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -bottom-10 -right-6 font-display font-black text-[16vw] leading-none text-white/[0.04] select-none tracking-tighter"
+              >
                 legal
               </div>
               <div className="relative max-w-2xl">
@@ -61,7 +67,8 @@ function Legal() {
                   <span className="text-primary">Transparency</span>.
                 </h1>
                 <p className="mt-5 text-cream/70 max-w-lg leading-relaxed">
-                  We believe in plain-language legal. No walls of legalese — just clear explanations of how we handle your data, what you can expect from us, and how to reach us.
+                  We believe in plain-language legal. No walls of legalese — just clear explanations
+                  of how we handle your data, what you can expect from us, and how to reach us.
                 </p>
               </div>
             </div>
@@ -71,7 +78,6 @@ function Legal() {
         {/* Body */}
         <section className="mx-auto max-w-7xl mt-16 mb-24">
           <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
-
             {/* Sidebar nav */}
             <aside className="lg:sticky lg:top-28 self-start">
               <nav className="rounded-[1.5rem] border border-border bg-card p-4 space-y-1">
@@ -90,23 +96,34 @@ function Legal() {
 
             {/* Content */}
             <div className="space-y-16">
-
               {/* Privacy Policy */}
               <Reveal>
                 <article id="privacy" className="scroll-mt-28">
                   <SectionHeader icon={Shield} title="Privacy Policy" />
                   <Prose>
                     <Lead>
-                      Family Table Recipe is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights over it.
+                      Family Table Recipe is committed to protecting your privacy. This policy
+                      explains what information we collect, how we use it, and your rights over it.
                     </Lead>
 
                     <SubHead>Information We Collect</SubHead>
                     <p>When you use Family Table Recipe, we may collect the following:</p>
                     <ul>
-                      <li><strong>Account information</strong> — name and email address when you subscribe to our newsletter or create a saved-recipe list.</li>
-                      <li><strong>Usage data</strong> — pages visited, recipes viewed, search queries, and time spent on the site, collected via anonymised analytics.</li>
-                      <li><strong>Device data</strong> — browser type, operating system, and IP address for security and performance purposes.</li>
-                      <li><strong>Cookies</strong> — see our Cookie Policy below for full details.</li>
+                      <li>
+                        <strong>Account information</strong> — name and email address when you
+                        subscribe to our newsletter or create a saved-recipe list.
+                      </li>
+                      <li>
+                        <strong>Usage data</strong> — pages visited, recipes viewed, search queries,
+                        and time spent on the site, collected via anonymised analytics.
+                      </li>
+                      <li>
+                        <strong>Device data</strong> — browser type, operating system, and IP
+                        address for security and performance purposes.
+                      </li>
+                      <li>
+                        <strong>Cookies</strong> — see our Cookie Policy below for full details.
+                      </li>
                     </ul>
 
                     <SubHead>How We Use Your Information</SubHead>
@@ -120,14 +137,31 @@ function Legal() {
 
                     <SubHead>Data Retention</SubHead>
                     <p>
-                      We retain your email address for as long as you remain subscribed. You may unsubscribe at any time via the link in any newsletter. Analytics data is retained for 24 months and then automatically deleted.
+                      We retain your email address for as long as you remain subscribed. You may
+                      unsubscribe at any time via the link in any newsletter. Analytics data is
+                      retained for 24 months and then automatically deleted.
                     </p>
 
                     <SubHead>Your Rights</SubHead>
-                    <p>You have the right to access, correct, or delete any personal data we hold about you. To exercise these rights, email us at <a href="mailto:privacy@familytablerecipe.com" className="text-primary underline underline-offset-2">privacy@familytablerecipe.com</a>. We will respond within 30 days.</p>
+                    <p>
+                      You have the right to access, correct, or delete any personal data we hold
+                      about you. To exercise these rights, email us at{" "}
+                      <a
+                        href="mailto:privacy@familytablerecipe.com"
+                        className="text-primary underline underline-offset-2"
+                      >
+                        privacy@familytablerecipe.com
+                      </a>
+                      . We will respond within 30 days.
+                    </p>
 
                     <SubHead>Third-Party Services</SubHead>
-                    <p>We use a small number of third-party services to operate the site — including a newsletter provider, an analytics platform, and a content delivery network. Each is bound by their own privacy policy and a data processing agreement with us. We do not permit these providers to use your data for their own marketing.</p>
+                    <p>
+                      We use a small number of third-party services to operate the site — including
+                      a newsletter provider, an analytics platform, and a content delivery network.
+                      Each is bound by their own privacy policy and a data processing agreement with
+                      us. We do not permit these providers to use your data for their own marketing.
+                    </p>
                   </Prose>
                 </article>
               </Reveal>
@@ -140,37 +174,57 @@ function Legal() {
                   <SectionHeader icon={FileText} title="Terms of Service" />
                   <Prose>
                     <Lead>
-                      By accessing or using Family Table Recipe, you agree to these terms. Please read them — they're short and written in plain English.
+                      By accessing or using Family Table Recipe, you agree to these terms. Please
+                      read them — they're short and written in plain English.
                     </Lead>
 
                     <SubHead>Using the Site</SubHead>
                     <ul>
-                      <li>Family Table Recipe is free to use for personal, non-commercial purposes.</li>
-                      <li>You may share recipes for personal use and link back to the original page. Please do not reproduce full recipe text or images without written permission.</li>
-                      <li>Do not use automated tools to scrape, crawl, or harvest content from the site.</li>
+                      <li>
+                        Family Table Recipe is free to use for personal, non-commercial purposes.
+                      </li>
+                      <li>
+                        You may share recipes for personal use and link back to the original page.
+                        Please do not reproduce full recipe text or images without written
+                        permission.
+                      </li>
+                      <li>
+                        Do not use automated tools to scrape, crawl, or harvest content from the
+                        site.
+                      </li>
                     </ul>
 
                     <SubHead>Recipes & Content Accuracy</SubHead>
                     <p>
-                      All recipes are tested by our team, but results may vary based on ingredient brands, equipment, and technique. Nutritional information is provided as an estimate and should not be used as medical or dietary advice.
+                      All recipes are tested by our team, but results may vary based on ingredient
+                      brands, equipment, and technique. Nutritional information is provided as an
+                      estimate and should not be used as medical or dietary advice.
                     </p>
                     <p>
-                      If you have food allergies or dietary restrictions, always verify every ingredient yourself. We cannot be held responsible for adverse reactions resulting from recipes on this site.
+                      If you have food allergies or dietary restrictions, always verify every
+                      ingredient yourself. We cannot be held responsible for adverse reactions
+                      resulting from recipes on this site.
                     </p>
 
                     <SubHead>Intellectual Property</SubHead>
                     <p>
-                      All content on Family Table Recipe — including recipes, photography, copy, and branding — is owned by Family Table Recipe or our content contributors and is protected by copyright. Unauthorised reproduction is prohibited.
+                      All content on Family Table Recipe — including recipes, photography, copy, and
+                      branding — is owned by Family Table Recipe or our content contributors and is
+                      protected by copyright. Unauthorised reproduction is prohibited.
                     </p>
 
                     <SubHead>Limitation of Liability</SubHead>
                     <p>
-                      Family Table Recipe is provided "as is." We make no warranties about the accuracy or reliability of the content. To the fullest extent permitted by law, we are not liable for any damages arising from your use of this site.
+                      Family Table Recipe is provided "as is." We make no warranties about the
+                      accuracy or reliability of the content. To the fullest extent permitted by
+                      law, we are not liable for any damages arising from your use of this site.
                     </p>
 
                     <SubHead>Changes to These Terms</SubHead>
                     <p>
-                      We may update these terms from time to time. Material changes will be communicated via the newsletter or a notice on the site. Continued use after changes constitutes acceptance.
+                      We may update these terms from time to time. Material changes will be
+                      communicated via the newsletter or a notice on the site. Continued use after
+                      changes constitutes acceptance.
                     </p>
                   </Prose>
                 </article>
@@ -184,12 +238,15 @@ function Legal() {
                   <SectionHeader icon={Cookie} title="Cookie Policy" />
                   <Prose>
                     <Lead>
-                      We use cookies to make Family Table Recipe work properly and to understand how people use it. Here's exactly what we use and why.
+                      We use cookies to make Family Table Recipe work properly and to understand how
+                      people use it. Here's exactly what we use and why.
                     </Lead>
 
                     <SubHead>What Are Cookies?</SubHead>
                     <p>
-                      Cookies are small text files stored on your device when you visit a website. They help the site remember your preferences and gather anonymised data about usage patterns.
+                      Cookies are small text files stored on your device when you visit a website.
+                      They help the site remember your preferences and gather anonymised data about
+                      usage patterns.
                     </p>
 
                     <SubHead>Cookies We Use</SubHead>
@@ -205,19 +262,25 @@ function Legal() {
                         </thead>
                         <tbody>
                           <tr>
-                            <td><code>ft_session</code></td>
+                            <td>
+                              <code>ft_session</code>
+                            </td>
                             <td>Essential</td>
                             <td>Keeps you logged in during your visit</td>
                             <td>Session</td>
                           </tr>
                           <tr>
-                            <td><code>ft_prefs</code></td>
+                            <td>
+                              <code>ft_prefs</code>
+                            </td>
                             <td>Functional</td>
                             <td>Remembers your theme and dietary filter preferences</td>
                             <td>1 year</td>
                           </tr>
                           <tr>
-                            <td><code>_analytics</code></td>
+                            <td>
+                              <code>_analytics</code>
+                            </td>
                             <td>Analytics</td>
                             <td>Anonymised page-view and click tracking</td>
                             <td>2 years</td>
@@ -228,7 +291,9 @@ function Legal() {
 
                     <SubHead>Your Choices</SubHead>
                     <p>
-                      You can control cookies through your browser settings. Disabling cookies may affect certain features of the site (such as saved preferences). You can also opt out of analytics tracking at any time — just email us.
+                      You can control cookies through your browser settings. Disabling cookies may
+                      affect certain features of the site (such as saved preferences). You can also
+                      opt out of analytics tracking at any time — just email us.
                     </p>
                     <p>We do not use advertising cookies or share cookie data with ad networks.</p>
                   </Prose>
@@ -249,25 +314,44 @@ function Legal() {
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2">
                     {[
-                      { label: "Privacy & Data", email: "privacy@familytablerecipe.com", desc: "Data requests, deletion, access rights" },
-                      { label: "General Legal", email: "legal@familytablerecipe.com", desc: "Copyright, licensing, permissions" },
-                      { label: "Newsletter", email: "hello@familytablerecipe.com", desc: "Subscribe, unsubscribe, feedback" },
-                      { label: "Press & Media", email: "press@familytablerecipe.com", desc: "Media kit, interviews, partnerships" },
+                      {
+                        label: "Privacy & Data",
+                        email: "privacy@familytablerecipe.com",
+                        desc: "Data requests, deletion, access rights",
+                      },
+                      {
+                        label: "General Legal",
+                        email: "legal@familytablerecipe.com",
+                        desc: "Copyright, licensing, permissions",
+                      },
+                      {
+                        label: "Newsletter",
+                        email: "hello@familytablerecipe.com",
+                        desc: "Subscribe, unsubscribe, feedback",
+                      },
+                      {
+                        label: "Press & Media",
+                        email: "press@familytablerecipe.com",
+                        desc: "Media kit, interviews, partnerships",
+                      },
                     ].map((c) => (
                       <a
                         key={c.label}
                         href={`mailto:${c.email}`}
                         className="group card-floating card-floating-hover p-6 block"
                       >
-                        <div className="text-xs uppercase tracking-widest font-medium text-primary mb-1">{c.label}</div>
-                        <div className="font-display font-semibold text-sm group-hover:text-primary transition-colors">{c.email}</div>
+                        <div className="text-xs uppercase tracking-widest font-medium text-primary mb-1">
+                          {c.label}
+                        </div>
+                        <div className="font-display font-semibold text-sm group-hover:text-primary transition-colors">
+                          {c.email}
+                        </div>
                         <div className="text-xs text-ink-soft mt-1">{c.desc}</div>
                       </a>
                     ))}
                   </div>
                 </article>
               </Reveal>
-
             </div>
           </div>
         </section>
@@ -292,11 +376,7 @@ function SectionHeader({ icon: Icon, title }: { icon: typeof Shield; title: stri
 }
 
 function Prose({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="prose-legal space-y-5 text-ink leading-relaxed">
-      {children}
-    </div>
-  );
+  return <div className="prose-legal space-y-5 text-ink leading-relaxed">{children}</div>;
 }
 
 function Lead({ children }: { children: React.ReactNode }) {
@@ -308,9 +388,7 @@ function Lead({ children }: { children: React.ReactNode }) {
 }
 
 function SubHead({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-display text-lg font-bold text-ink mt-8 mb-3">{children}</h3>
-  );
+  return <h3 className="font-display text-lg font-bold text-ink mt-8 mb-3">{children}</h3>;
 }
 
 function Divider() {

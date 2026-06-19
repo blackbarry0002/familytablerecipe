@@ -10,7 +10,11 @@ export const Route = createFileRoute("/categories")({
   head: () => ({
     meta: [
       { title: "Recipe Categories — Family Table Recipe" },
-      { name: "description", content: "Explore Family Table recipe categories — breakfast, lunch, dinner, desserts, healthy meals, vegetarian and family favourites." },
+      {
+        name: "description",
+        content:
+          "Explore Family Table recipe categories — breakfast, lunch, dinner, desserts, healthy meals, vegetarian and family favourites.",
+      },
       { property: "og:title", content: "Recipe Categories — Family Table Recipe" },
       { property: "og:description", content: "Browse beautifully organised recipe categories." },
     ],
@@ -25,7 +29,12 @@ function Categories() {
       <main className="px-4 sm:px-6">
         <section className="mx-auto max-w-7xl pt-2">
           <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-cream-deep p-8 sm:p-14">
-            <img src={ingredients} alt="" loading="lazy" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-40 hidden md:block" />
+            <img
+              src={ingredients}
+              alt=""
+              loading="lazy"
+              className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-40 hidden md:block"
+            />
             <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-transparent to-cream-deep hidden md:block" />
             <div className="relative max-w-2xl">
               <span className="chip">By the mood, by the moment</span>
@@ -33,7 +42,8 @@ function Categories() {
                 Browse <span className="text-accent-gradient">Categories</span>
               </h1>
               <p className="mt-5 text-ink-soft max-w-lg">
-                From slow weekend mornings to busy school nights — every category is a doorway into a different kind of meal.
+                From slow weekend mornings to busy school nights — every category is a doorway into
+                a different kind of meal.
               </p>
             </div>
           </Reveal>
@@ -49,7 +59,12 @@ function Categories() {
                 }`}
               >
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[340px] overflow-hidden">
-                  <img src={c.image} alt={c.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110" />
+                  <img
+                    src={c.image}
+                    alt={c.name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                  />
                 </div>
                 <div className="p-8 sm:p-12 flex flex-col justify-center">
                   <div className="flex items-center justify-between">

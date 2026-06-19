@@ -13,7 +13,14 @@ interface RevealProps {
   as?: keyof React.JSX.IntrinsicElements;
 }
 
-export function Reveal({ children, className, delay = 0, y = 28, stagger, as: Tag = "div" }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  y = 28,
+  stagger,
+  as: Tag = "div",
+}: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -35,5 +42,9 @@ export function Reveal({ children, className, delay = 0, y = 28, stagger, as: Ta
   }, [delay, y, stagger]);
 
   // @ts-expect-error dynamic tag
-  return <Tag ref={ref} className={className}>{children}</Tag>;
+  return (
+    <Tag ref={ref} className={className}>
+      {children}
+    </Tag>
+  );
 }

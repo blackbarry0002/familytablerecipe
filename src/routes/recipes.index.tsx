@@ -8,13 +8,27 @@ import { RecipeCard } from "@/components/RecipeCard";
 import { recipes } from "@/lib/recipes";
 import ingredients from "@/assets/ingredients-flatlay.jpg";
 
-const filters = ["All", "Breakfast", "Lunch", "Dinner", "Desserts", "Healthy", "Vegetarian", "Pasta", "Family"];
+const filters = [
+  "All",
+  "Breakfast",
+  "Lunch",
+  "Dinner",
+  "Desserts",
+  "Healthy",
+  "Vegetarian",
+  "Pasta",
+  "Family",
+];
 
 export const Route = createFileRoute("/recipes/")({
   head: () => ({
     meta: [
       { title: "All Recipes — Family Table Recipe" },
-      { name: "description", content: "Browse the complete Family Table recipe collection — search, filter and save your favourites." },
+      {
+        name: "description",
+        content:
+          "Browse the complete Family Table recipe collection — search, filter and save your favourites.",
+      },
       { property: "og:title", content: "All Recipes — Family Table Recipe" },
       { property: "og:description", content: "The complete recipe collection from Family Table." },
     ],
@@ -40,7 +54,12 @@ function AllRecipes() {
       <main className="px-4 sm:px-6">
         <section className="mx-auto max-w-7xl pt-2">
           <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-cream-deep p-8 sm:p-14">
-            <img src={ingredients} alt="" loading="lazy" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-50 hidden md:block" />
+            <img
+              src={ingredients}
+              alt=""
+              loading="lazy"
+              className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-50 hidden md:block"
+            />
             <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-transparent to-cream-deep hidden md:block" />
             <div className="relative max-w-2xl">
               <span className="chip">The collection</span>
@@ -48,7 +67,8 @@ function AllRecipes() {
                 Every <span className="text-accent-gradient">recipe</span>, beautifully indexed.
               </h1>
               <p className="mt-5 text-ink-soft max-w-lg">
-                Search by name, filter by mood, save the ones you'll cook again. The full Family Table library, always at your fingertips.
+                Search by name, filter by mood, save the ones you'll cook again. The full Family
+                Table library, always at your fingertips.
               </p>
               <div className="mt-7 grid grid-cols-[minmax(0,1fr)_auto] gap-2 rounded-full border border-border bg-card p-1.5 max-w-xl">
                 <div className="flex items-center gap-2 px-4">
@@ -93,7 +113,9 @@ function AllRecipes() {
             </div>
           ) : (
             <Reveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((r) => <RecipeCard key={r.title + r.category} recipe={r} />)}
+              {list.map((r) => (
+                <RecipeCard key={r.title + r.category} recipe={r} />
+              ))}
             </Reveal>
           )}
         </section>
