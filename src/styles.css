@@ -1,0 +1,200 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
+  --radius-3xl: 3rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+
+  --shadow-card: 0 4px 24px -8px oklch(0.45 0.06 60 / 0.10), 0 1px 3px oklch(0.45 0.06 60 / 0.04);
+  --shadow-float: 0 18px 50px -20px oklch(0.45 0.06 60 / 0.22), 0 4px 12px oklch(0.45 0.06 60 / 0.06);
+  --shadow-glow: 0 14px 40px -10px oklch(0.72 0.17 55 / 0.35);
+}
+
+:root {
+  --background: oklch(0.975 0.018 80);     /* warm cream */
+  --foreground: oklch(0.18 0.02 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 60);
+
+  --primary: oklch(0.72 0.17 55);          /* golden orange */
+  --primary-foreground: oklch(0.99 0.005 80);
+
+  --secondary: oklch(0.94 0.025 75);       /* deeper cream */
+  --secondary-foreground: oklch(0.22 0.02 60);
+
+  --muted: oklch(0.95 0.018 80);
+  --muted-foreground: oklch(0.48 0.02 60);
+
+  --accent: oklch(0.92 0.04 75);
+  --accent-foreground: oklch(0.22 0.02 60);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 80);
+
+  --border: oklch(0.90 0.018 75);
+  --input: oklch(0.92 0.018 75);
+  --ring: oklch(0.72 0.17 55);
+
+  --cream: oklch(0.97 0.02 80);
+  --cream-deep: oklch(0.93 0.035 78);
+  --ink: oklch(0.18 0.02 60);
+  --ink-soft: oklch(0.40 0.02 60);
+
+  --radius: 1.25rem;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+  ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
+}
+
+@utility text-accent-gradient {
+  background: linear-gradient(120deg, oklch(0.72 0.17 55), oklch(0.78 0.16 65));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility card-floating {
+  background: var(--color-card);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+}
+@utility card-floating-hover {
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-float);
+  }
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px -8px oklch(0.18 0.02 60 / 0.4);
+  &:hover { transform: translateY(-2px); background: oklch(0.25 0.02 60); }
+}
+@utility btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-glow);
+  &:hover { transform: translateY(-2px); filter: brightness(1.05); }
+}
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 999px;
+  background: var(--color-card);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  &:hover { background: var(--color-cream-deep); transform: translateY(-2px); }
+}
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+}
+
+/* Legal page prose table styles */
+.prose-legal p { font-size: 0.9375rem; color: var(--color-ink-soft); }
+.prose-legal ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.prose-legal ul li { display: flex; gap: 0.75rem; font-size: 0.9375rem; color: var(--color-ink-soft); }
+.prose-legal ul li::before { content: ""; display: block; margin-top: 0.55rem; height: 0.375rem; width: 0.375rem; border-radius: 999px; background: var(--color-primary); flex-shrink: 0; }
+.prose-legal table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-top: 0.5rem; }
+.prose-legal thead tr { background: var(--color-cream-deep); }
+.prose-legal th { text-align: left; padding: 0.65rem 0.875rem; font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-ink-soft); }
+.prose-legal td { padding: 0.65rem 0.875rem; border-top: 1px solid var(--color-border); vertical-align: top; color: var(--color-ink-soft); }
+.prose-legal code { font-family: ui-monospace, monospace; font-size: 0.8em; background: var(--color-cream-deep); border-radius: 0.35rem; padding: 0.1em 0.4em; color: var(--color-ink); }
+.prose-legal strong { color: var(--color-ink); font-weight: 600; }
+.prose-legal a { text-decoration-color: color-mix(in oklch, var(--color-primary) 50%, transparent); }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@utility float-slow { animation: float-y 6s ease-in-out infinite; }
+@utility float-slower { animation: float-y 8s ease-in-out infinite; }
